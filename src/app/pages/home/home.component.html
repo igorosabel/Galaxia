@@ -1,0 +1,18 @@
+<header>
+	<h1>Galaxia</h1>
+	<span>
+		<label for="galaxia">Galaxia</label>
+		<select name="galaxia" id="galaxia" [(ngModel)]="selected.galaxia" (change)="loadSelected()">
+			<option *ngFor="let galaxia of galaxias" [ngValue]="galaxia.id">{{galaxia.nombre}}</option>
+		</select>
+		<label for="sector">Sector</label>
+		<select name="sector" id="sector" [(ngModel)]="selected.sector" (change)="loadSelected()">
+			<option *ngFor="let ind of counter(numSectores);let i = index" [ngValue]="(i+1)">{{i + 1}}</option>
+		</select>
+		<label for="cuadrante">Cuadrante</label>
+		<select name="cuadrante" id="cuadrante" [(ngModel)]="selected.cuadrante" (change)="loadSelected()">
+		<option *ngFor="let ind of counter(numCuadrantes);let i = index" [ngValue]="(i+1)">{{i + 1}}</option>
+		</select>
+	</span>
+</header>
+
