@@ -23,7 +23,6 @@ export class AlliancesComponent implements OnInit {
 	loadAlianzas(): void {
 		this.as.getAlianzas().subscribe(result => {
 			this.alianzas = this.cms.getAlianzas(result.list);
-			console.log(this.alianzas);
 		});
 	}
 	
@@ -48,7 +47,7 @@ export class AlliancesComponent implements OnInit {
 				if (result.status == 'ok') {
 					this.closeModal();
 					this.loadAlianzas();
-					alert('¡Nueva alianza guardada!');
+					alert('¡Alianza guardada!');
 				}
 				else {
 					alert('¡Ocurrió un error al guardar la alianza!');

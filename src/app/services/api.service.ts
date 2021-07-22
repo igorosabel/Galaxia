@@ -7,7 +7,10 @@ import {
 	PlanetasResult,
 	AlianzasResult,
 	AlianzaInterface,
-	StatusResult
+	StatusResult,
+	RazasResult,
+	JugadoresResult,
+	JugadorInterface
 } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
@@ -37,5 +40,21 @@ export class ApiService {
 	
 	deleteAlianza(id: number): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'delete-alianza', {id});
+	}
+	
+	getRazas(): Observable<RazasResult> {
+		return this.http.post<RazasResult>(this.apiUrl + 'get-razas', {});
+	}
+
+	getJugadores(): Observable<JugadoresResult> {
+		return this.http.post<JugadoresResult>(this.apiUrl + 'get-jugadores', {});
+	}
+	
+	saveJugador(jugador: JugadorInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'save-jugador', jugador);
+	}
+	
+	deleteJugador(id: number): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'delete-jugador', {id});
 	}
 }

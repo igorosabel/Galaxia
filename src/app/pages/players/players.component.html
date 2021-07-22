@@ -1,1 +1,62 @@
-<p>players works!</p>
+<header>
+	<a routerLink="/">
+		<img src="/assets/back.svg" alt="Volver">
+	</a>
+	<h1>Jugadores</h1>
+	<a href="#" (click)="addNew($event)">Añadir nuevo</a>
+</header>
+
+<div class="table">
+	<div class="table-row table-header">
+		<div class="table-col-10 table-col-center">ID</div>
+		<div class="table-col-30">Nombre</div>
+		<div class="table-col-20">Raza</div>
+		<div class="table-col-20">Alianza</div>
+		<div class="table-col-20 table-col-center">Opciones</div>
+	</div>
+	<div *ngFor="let jugador of jugadores" class="table-row">
+		<div class="table-col-10 table-col-center">{{jugador.id}}</div>
+		<div class="table-col-30">{{jugador.nombre}}</div>
+		<div class="table-col-20">{{jugador.raza?.nombre}}</div>
+		<div class="table-col-20">{{jugador.alianza?.nombre}}</div>
+		<div class="table-col-20 table-col-icons">
+			<img src="/assets/edit.svg" alt="Editar jugador" title="Editar jugador" (click)="editJugador(jugador)">
+			<img src="/assets/delete.svg" alt="Borrar jugador" title="Borrar jugador" (click)="deleteJugador(jugador)">
+		</div>
+	</div>
+	<div *ngIf="jugadores.length==0" class="table-row">
+		<div class="table-col-100 table-col-center">Todavía no hay ningún jugador.</div>
+	</div>
+</div>
+
+<div class="modal-bg" [ngClass]="{'modal-bg-show': showModal}">
+	<div class="modal-box">
+		<div class="modal-header">
+			<span>{{boxTitle}}</span>
+			<a href="#" (click)="closeModal($event)">X</a>
+		</div>
+		<div class="modal-body">
+			<div class="modal-row">
+				<label for="nombre">Nombre del jugador</label>
+				<input type="text" name="nombre" id="nombre" [(ngModel)]="selectedPlayer.nombre">
+			</div>
+			<div class="modal-row">
+				<label for="raza">Raza del jugador</label>
+				<select name="raza" id="raza" [(ngModel)]="selectedRaza">
+					<option [ngValue]="-1">Elige raza</option>
+					<option *ngFor="let raza of razas" [ngValue]="raza.id">{{raza.nombre}}</option>
+				</select>
+			</div>
+			<div class="modal-row">
+				<label for="raza">Alianza del jugador</label>
+				<select name="alianza" id="alianza" [(ngModel)]="selectedAlianza">
+					<option [ngValue]="-1">Elige alianza</option>
+					<option *ngFor="let alianza of alianzas" [ngValue]="alianza.id">{{alianza.nombre}}</option>
+				</select>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button (click)="saveJugador()">Guardar</button>
+		</div>
+	</div>
+</div>

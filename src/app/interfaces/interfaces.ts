@@ -67,3 +67,13 @@ export interface AlianzasResult {
 export interface StatusResult {
 	status: string;
 }
+
+export interface RazasResult {
+	status: string;
+	list: RazaInterface[];
+}
+
+export interface JugadoresResult {
+	status: string;
+	list: JugadorInterface[];
+}

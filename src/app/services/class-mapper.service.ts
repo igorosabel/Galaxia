@@ -21,6 +21,16 @@ import { Utils } from 'src/app/model/utils.class';
 export class ClassMapperService {
 	constructor() {}
 
+	getRazas(rs: RazaInterface[]): Raza[] {
+		const razas: Raza[] = [];
+
+		for (let r of rs) {
+			razas.push(this.getRaza(r));
+		}
+
+		return razas;
+	}
+
 	getRaza(r: RazaInterface): Raza {
 		return new Raza(
 			r.id,
@@ -43,6 +53,16 @@ export class ClassMapperService {
 			a.id,
 			Utils.urldecode(a.nombre)
 		);
+	}
+
+	getJugadores(js: JugadorInterface[]): Jugador[] {
+		const jugadores: Jugador[] = [];
+
+		for (let j of js) {
+			jugadores.push(this.getJugador(j));
+		}
+
+		return jugadores;
 	}
 
 	getJugador(j: JugadorInterface): Jugador {
