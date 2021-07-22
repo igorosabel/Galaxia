@@ -1,0 +1,26 @@
+header {
+	display: flex;
+	height: 40px;
+	align-items: center;
+
+	img {
+		display: inline-block;
+		margin: 0 16px;
+	}
+
+	h1 {
+		margin: 0;
+		flex: 1;
+	}
+
+	a {
+		display: inline-block;
+		color: #fff;
+		margin: 0 8px;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

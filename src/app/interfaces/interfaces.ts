@@ -77,3 +77,8 @@ export interface JugadoresResult {
 	status: string;
 	list: JugadorInterface[];
 }
+
+export interface EspecialesResult {
+	status: string;
+	list: EspecialInterface[];
+}

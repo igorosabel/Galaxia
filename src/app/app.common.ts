@@ -4,11 +4,13 @@
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { PlayersComponent } from './pages/players/players.component';
 import { AlliancesComponent } from './pages/alliances/alliances.component';
+import { SpecialsComponent } from './pages/specials/specials.component';
 
 export const PAGES: any[] = [
 	HomeComponent,
 	PlayersComponent,
-	AlliancesComponent
+	AlliancesComponent,
+	SpecialsComponent
 ];
 
 /*

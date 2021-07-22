@@ -74,6 +74,16 @@ export class ClassMapperService {
 		);
 	}
 
+	getEspeciales(es: EspecialInterface[]): Especial[] {
+		const especiales: Especial[] = [];
+
+		for (let e of es) {
+			especiales.push(this.getEspecial(e));
+		}
+
+		return especiales;
+	}
+
 	getEspecial(e: EspecialInterface): Especial {
 		return new Especial(
 			e.id,

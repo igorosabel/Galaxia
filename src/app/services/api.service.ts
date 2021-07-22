@@ -11,7 +11,8 @@ import {
 	RazasResult,
 	JugadoresResult,
 	JugadorInterface,
-	PlanetaInterface
+	PlanetaInterface,
+	EspecialesResult
 } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
@@ -34,15 +35,15 @@ export class ApiService {
 	getAlianzas(): Observable<AlianzasResult> {
 		return this.http.post<AlianzasResult>(this.apiUrl + 'get-alianzas', {});
 	}
-	
+
 	saveAlianza(alianza: AlianzaInterface): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'save-alianza', alianza);
 	}
-	
+
 	deleteAlianza(id: number): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'delete-alianza', {id});
 	}
-	
+
 	getRazas(): Observable<RazasResult> {
 		return this.http.post<RazasResult>(this.apiUrl + 'get-razas', {});
 	}
@@ -50,16 +51,20 @@ export class ApiService {
 	getJugadores(): Observable<JugadoresResult> {
 		return this.http.post<JugadoresResult>(this.apiUrl + 'get-jugadores', {});
 	}
-	
+
 	saveJugador(jugador: JugadorInterface): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'save-jugador', jugador);
 	}
-	
+
 	deleteJugador(id: number): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'delete-jugador', {id});
 	}
-	
+
 	savePlaneta(planeta: PlanetaInterface): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'save-planeta', planeta);
+	}
+
+	getEspeciales(): Observable<EspecialesResult> {
+		return this.http.post<EspecialesResult>(this.apiUrl + 'get-especiales', {});
 	}
 }
