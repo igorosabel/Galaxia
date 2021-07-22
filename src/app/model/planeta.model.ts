@@ -45,6 +45,13 @@ export class Planeta {
 
 		return nombre;
 	}
+	
+	get image() {
+		if (this.valor == -1) {
+			return '/assets/valor/sinexplo.jpg';
+		}
+		return '/assets/valor/' + this.valor + '.jpg';
+	}
 
 	toInterface(): PlanetaInterface {
 		return {

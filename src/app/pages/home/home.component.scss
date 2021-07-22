@@ -8,11 +8,12 @@ header {
 	justify-content: space-between;
 
 	h1 {
-		margin: 16px;
+		margin: 0 16px;
+		line-height: 40px;
 	}
 
 	span{
-		padding: 16px;
+		padding: 0 16px;
 		display: flex;
 		align-items: center;
 
@@ -28,6 +29,8 @@ header {
 }
 
 .container {
+	height: calc(100% - 40px);
+    margin-top: 40px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -38,6 +41,29 @@ header {
 	". . . ."
 	". . . ."
 	". . . .";
+	
+	& > div {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		
+		&:hover {
+			cursor: pointer;
+			color: #888;
+		}
+		
+		.valor {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #333;
+			color: #fff !important;
+			font-weight: bold;
+			padding: 2px 3px;
+		}
+	}
 }
 
 

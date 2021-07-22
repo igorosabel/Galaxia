@@ -17,5 +17,9 @@
 </header>
 
 <div class="container">
-	<div *ngFor="let planeta of planetas">{{planeta.nombre}}</div>
+	<div *ngFor="let planeta of planetas">
+		<div class="valor" *ngIf="planeta.valor!=-1">{{planeta.valor}}%</div>
+		<img [src]="planeta.image">
+		{{planeta.nombre}}
+	</div>
 </div>
