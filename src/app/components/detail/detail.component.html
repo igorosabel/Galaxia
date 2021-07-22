@@ -1,0 +1,25 @@
+<div class="bg" [ngClass]="{'show': show}">
+	<div class="box">
+		<div class="box-header">
+			<div class="box-title">{{planeta.nombre}}</div>
+			<div class="box-close" (click)="close()">X</div>
+		</div>
+		<div class="box-body">
+			<div class="preview">
+				<img [src]="planeta.image">
+			</div>
+			<div class="info">
+				<div>
+					<label for="valor">Valor</label>
+					<select name="valor" id="valor" [(ngModel)]="planeta.valor">
+						<option *ngFor="let valor of valores" [ngValue]="valor">{{ valor == -1 ? 'Elige un valor' : valor + '%'}}</option>
+					</select>
+				</div>
+				<div>
+					<label for="jugador">Jugador</label>
+					<input type="text">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

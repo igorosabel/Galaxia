@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Galaxia } from 'src/app/model/galaxia.model';
 import { Planeta } from 'src/app/model/planeta.model';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';
 import { environment } from 'src/environments/environment';
 import { Location } from 'src/app/interfaces/interfaces';
+import { DetailComponent } from 'src/app/components/detail/detail.component';
 
 @Component({
 	selector: 'app-home',
@@ -12,6 +13,7 @@ import { Location } from 'src/app/interfaces/interfaces';
 	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+	@ViewChild('detail', {static: true}) detail!: DetailComponent;
 	galaxias: Galaxia[] = [];
 	selected: Location = environment.inicio;
 	numSectores = 0;
@@ -65,5 +67,9 @@ export class HomeComponent implements OnInit {
 
 	counter(i: number) {
 		return new Array(i);
+	}
+	
+	selectPlaneta(planeta: Planeta): void {
+		this.detail.load(planeta);
 	}
 }

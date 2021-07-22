@@ -58,3 +58,12 @@ export interface PlanetasResult {
 	status: string;
 	list: PlanetaInterface[];
 }
+
+export interface AlianzasResult {
+	status: string;
+	list: AlianzaInterface[];
+}
+
+export interface StatusResult {
+	status: string;
+}

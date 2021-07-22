@@ -28,6 +28,16 @@ export class ClassMapperService {
 		);
 	}
 
+	getAlianzas(as: AlianzaInterface[]): Alianza[] {
+		const alianzas: Alianza[] = [];
+
+		for (let a of as) {
+			alianzas.push(this.getAlianza(a));
+		}
+
+		return alianzas;
+	}
+
 	getAlianza(a: AlianzaInterface): Alianza {
 		return new Alianza(
 			a.id,

@@ -1,3 +1,8 @@
+:root {
+	--modal-blue: #49719a;
+	--modal-blue-over: #256cb5;
+}
+
 html,
 body {
 	height: 100%;
@@ -5,4 +10,156 @@ body {
 	background-color: #000;
 	color: #fff;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.table {
+	width: 50%;
+	margin: 32px auto;
+	border: 1px solid #fff;
+
+	.table-row {
+		display: flex;
+		border-bottom: 1px solid #fff;
+
+		.table-col-center {
+			text-align: center;
+		}
+
+		.table-col-icons {
+			display: flex;
+			justify-content: space-around;
+
+			img {
+				cursor: pointer;
+			}
+		}
+
+		.table-col-10 {
+			width: 10%;
+		}
+
+		.table-col-20 {
+			width: 20%;
+		}
+
+		.table-col-70 {
+			width: 70%;
+		}
+
+		.table-col-100 {
+			width: 100%;
+		}
+
+		& > * {
+			padding: 8px;
+		}
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	.table-header {
+		background-color: #888;
+	}
+}
+
+.modal-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 10;
+
+	.modal-box {
+		background-color: #000;
+		border: 8px solid var(--modal-blue);
+		border-radius: 4px;
+
+		.modal-header {
+			height: 40px;
+			display: flex;
+			align-items: center;
+
+			span {
+				padding: 0 8px;
+				flex: 1
+			}
+
+			a {
+				color: #fff;
+				text-decoration: none;
+				width: 20px;
+				height: 20px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				margin-right: 8px;
+
+				&:hover {
+					background-color: #888;
+				}
+			}
+		}
+
+		.modal-body {
+			display: flex;
+			flex-direction: column;
+
+			.modal-row {
+				padding: 8px;
+				display: flex;
+				flex-direction: column;
+
+				label {
+					width: 100%;
+				}
+
+				input {
+					outline: 0;
+					border: 0;
+					line-height: 40px;
+					padding: 0 8px;
+					border: 2px solid transparent;
+
+					&:focus {
+						border: 2px solid var(--modal-blue);
+					}
+				}
+			}
+		}
+
+		.modal-footer {
+			padding: 8px;
+			display: flex;
+			justify-content: flex-end;
+
+			button {
+				height: 40px;
+				padding: 0 8px;
+				min-width: 100px;
+				border: 0;
+				font-size: 1.1em;
+				background-color: var(--modal-blue);
+				border-radius: 4px;
+				color: #fff;
+
+				&:hover {
+					cursor: pointer;
+					background-color: var(--modal-blue-over);
+				}
+			}
+		}
+	}
+}
+
+.modal-bg-show {
+	display: flex;
 }

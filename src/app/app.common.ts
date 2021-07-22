@@ -2,15 +2,23 @@
  * Páginas
  */
 import { HomeComponent } from 'src/app/pages/home/home.component';
+import { PlayersComponent } from './pages/players/players.component';
+import { AlliancesComponent } from './pages/alliances/alliances.component';
 
 export const PAGES: any[] = [
-	HomeComponent
+	HomeComponent,
+	PlayersComponent,
+	AlliancesComponent
 ];
 
 /*
  * Componentes parciales
  */
-export const COMPONENTS: any[] = [];
+import { DetailComponent } from 'src/app/components/detail/detail.component';
+
+export const COMPONENTS: any[] = [
+	DetailComponent
+];
 
 /*
  * Pipes

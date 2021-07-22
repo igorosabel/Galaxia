@@ -13,13 +13,17 @@
 		<select name="cuadrante" id="cuadrante" [(ngModel)]="selected.cuadrante" (change)="loadSelected()">
 		<option *ngFor="let ind of counter(numCuadrantes);let i = index" [ngValue]="(i+1)">{{i + 1}}</option>
 		</select>
+		<a routerLink="/players">Jugadores</a>
+		<a routerLink="/alliances">Alianzas</a>
 	</span>
 </header>
 
 <div class="container">
-	<div *ngFor="let planeta of planetas">
+	<div *ngFor="let planeta of planetas" (click)="selectPlaneta(planeta)">
 		<div class="valor" *ngIf="planeta.valor!=-1">{{planeta.valor}}%</div>
 		<img [src]="planeta.image">
 		{{planeta.nombre}}
 	</div>
 </div>
+
+<app-detail #detail></app-detail>
