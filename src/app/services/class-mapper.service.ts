@@ -76,6 +76,7 @@ export class ClassMapperService {
 	getPlaneta(p: PlanetaInterface): Planeta {
 		return new Planeta(
 			p.id,
+			(p.galaxia !== null) ? this.getGalaxia(p.galaxia) : null,
 			p.sector,
 			p.cuadrante,
 			p.ind,

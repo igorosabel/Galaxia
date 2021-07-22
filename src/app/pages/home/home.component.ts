@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
 				else {
 					this.planetas[i] = new Planeta(
 						-1,
+						this.galaxias[selectedGalaxia],
 						this.selected.sector,
 						this.selected.cuadrante,
 						i
@@ -61,7 +62,7 @@ export class HomeComponent implements OnInit {
 			console.log(this.planetas);
 		});
 	}
-	
+
 	counter(i: number) {
 		return new Array(i);
 	}

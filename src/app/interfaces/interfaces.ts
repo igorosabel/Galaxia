@@ -38,6 +38,7 @@ export interface GalaxiaInterface {
 
 export interface PlanetaInterface {
 	id: number;
+	galaxia: GalaxiaInterface | null;
 	sector: number;
 	cuadrante: number;
 	ind: number;
