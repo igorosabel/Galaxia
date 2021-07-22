@@ -20,10 +20,11 @@
 
 <div class="container">
 	<div *ngFor="let planeta of planetas" (click)="selectPlaneta(planeta)">
-		<div class="valor" *ngIf="planeta.valor!=-1">{{planeta.valor}}%</div>
+		<div class="valor" *ngIf="planeta.valor != -1">{{planeta.valor}}%</div>
+		<div class="jugador" *ngIf="planeta.jugador != null && planeta.jugador.id != -1">{{planeta.jugador.nombre}}</div>
 		<img [src]="planeta.image">
 		{{planeta.nombre}}
 	</div>
 </div>
 
-<app-detail #detail></app-detail>
+<app-detail #detail (updateEvent)="updatePlaneta($event)"></app-detail>

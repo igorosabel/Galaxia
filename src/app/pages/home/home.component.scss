@@ -54,19 +54,21 @@ header {
 	". . . ."
 	". . . ."
 	". . . .";
-	
+
 	& > div {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		border-radius: 4px;
 		
 		&:hover {
 			cursor: pointer;
 			color: #888;
+			background-color: #111;
 		}
-		
+
 		.valor {
 			position: absolute;
 			top: 0;
@@ -75,6 +77,14 @@ header {
 			color: #fff !important;
 			font-weight: bold;
 			padding: 2px 3px;
+		}
+
+		.jugador {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			text-align: center;
 		}
 	}
 }

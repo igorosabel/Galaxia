@@ -17,9 +17,19 @@
 				</div>
 				<div>
 					<label for="jugador">Jugador</label>
-					<input type="text">
+					<select name="jugador" id="jugador" [(ngModel)]="selectedJugador">
+						<option [ngValue]="-1">Elige jugador</option>
+						<option *ngFor="let jugador of jugadores" [ngValue]="jugador.id">{{jugador.nombre}}</option>
+					</select>
+				</div>
+				<div>
+					<label for="protegido">Protegido</label>
+					<input type="checkbox" name="protegido" id="protegido" [checked]="planeta.protegido" (change)="planeta.protegido = !planeta.protegido">
 				</div>
 			</div>
+		</div>
+		<div class="box-footer">
+			<button (click)="savePlaneta()">Guardar</button>
 		</div>
 	</div>
 </div>

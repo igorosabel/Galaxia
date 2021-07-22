@@ -15,7 +15,6 @@
 		border: 8px solid var(--modal-blue);
 		border-radius: 4px;
 		width: 300px;
-		height: 200px;
 
 		.box-header {
 			display: flex;
@@ -60,12 +59,42 @@
 				flex: 3;
 
 				label {
-					display: inline-block;
-					margin-right: 16px;
+					display: block;
+					width: 100%;
 				}
 
 				select {
-					
+					outline: 0;
+					border: 0;
+					line-height: 40px;
+					padding: 0 8px;
+					border: 2px solid transparent;
+
+					&:focus {
+						border: 2px solid var(--modal-blue);
+					}
+				}
+			}
+		}
+
+		.box-footer {
+			padding: 8px;
+			display: flex;
+			justify-content: flex-end;
+
+			button {
+				height: 40px;
+				padding: 0 8px;
+				min-width: 100px;
+				border: 0;
+				font-size: 1.1em;
+				background-color: var(--modal-blue);
+				border-radius: 4px;
+				color: #fff;
+
+				&:hover {
+					cursor: pointer;
+					background-color: var(--modal-blue-over);
 				}
 			}
 		}

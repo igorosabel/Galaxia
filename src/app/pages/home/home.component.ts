@@ -60,8 +60,6 @@ export class HomeComponent implements OnInit {
 					);
 				}
 			}
-
-			console.log(this.planetas);
 		});
 	}
 
@@ -71,5 +69,11 @@ export class HomeComponent implements OnInit {
 	
 	selectPlaneta(planeta: Planeta): void {
 		this.detail.load(planeta);
+	}
+	
+	updatePlaneta(resultado: string): void {
+		if (resultado === 'ok') {
+			this.loadSelected();
+		}
 	}
 }

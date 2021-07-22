@@ -10,7 +10,8 @@ import {
 	StatusResult,
 	RazasResult,
 	JugadoresResult,
-	JugadorInterface
+	JugadorInterface,
+	PlanetaInterface
 } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
@@ -56,5 +57,9 @@ export class ApiService {
 	
 	deleteJugador(id: number): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'delete-jugador', {id});
+	}
+	
+	savePlaneta(planeta: PlanetaInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'save-planeta', planeta);
 	}
 }
