@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Planeta } from 'src/app/model/planeta.model';
 import { Jugador } from 'src/app/model/jugador.model';
+import { Especial } from 'src/app/model/especial.model';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';
 
@@ -16,12 +17,17 @@ export class DetailComponent implements OnInit {
 	valores: number[] = [-1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 	jugadores: Jugador[] = [];
 	selectedJugador: number = -1;
+	especiales: Especial[] = [];
+	selectedEspecial: number = -1;
 
 	constructor(private as: ApiService, private cms: ClassMapperService) {}
 
 	ngOnInit(): void {
 		this.as.getJugadores().subscribe(result => {
 			this.jugadores = this.cms.getJugadores(result.list);
+		});
+		this.as.getEspeciales().subscribe(result => {
+			this.especiales = this.cms.getEspeciales(result.list);
 		});
 	}
 
@@ -38,6 +44,12 @@ export class DetailComponent implements OnInit {
 		else {
 			this.selectedJugador = -1;
 		}
+		if (this.planeta.especial !== null) {
+			this.selectedEspecial = this.planeta.especial.id;
+		}
+		else {
+			this.selectedEspecial = -1;
+		}
 	}
 	
 	savePlaneta(): void {
@@ -51,6 +63,13 @@ export class DetailComponent implements OnInit {
 		}
 		else {
 			this.planeta.jugador = null;
+		}
+		if (this.selectedEspecial !== -1) {
+			const ind = this.especiales.findIndex(x => x.id === this.selectedEspecial);
+			this.planeta.especial = this.cms.getEspecial(this.especiales[ind].toInterface());
+		}
+		else {
+			this.planeta.especial = null;
 		}
 		this.as.savePlaneta(this.planeta.toInterface()).subscribe(result => {
 			if (result.status == 'ok') {

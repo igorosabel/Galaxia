@@ -50,7 +50,17 @@ export class Planeta {
 		if (this.valor == -1) {
 			return '/assets/valor/sinexplo.jpg';
 		}
+		if (this.especial !== null) {
+			return this.especial.img;
+		}
 		return '/assets/valor/' + this.valor + '.jpg';
+	}
+
+	get nombreCompleto() {
+		if (this.especial !== null) {
+			return this.especial.nombre + '(' + this.nombre + ')';
+		}
+		return this.nombre;
 	}
 
 	toInterface(): PlanetaInterface {

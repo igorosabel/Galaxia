@@ -25,7 +25,6 @@ export class SpecialsComponent implements OnInit {
 	loadEspeciales(): void {
 		this.as.getEspeciales().subscribe(result => {
 			this.especiales = this.cms.getEspeciales(result.list);
-			console.log(this.especiales);
 		});
 	}
 

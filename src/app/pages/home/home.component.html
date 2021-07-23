@@ -22,9 +22,12 @@
 <div class="container">
 	<div *ngFor="let planeta of planetas" (click)="selectPlaneta(planeta)">
 		<div class="valor" *ngIf="planeta.valor != -1">{{planeta.valor}}%</div>
-		<div class="jugador" *ngIf="planeta.jugador != null && planeta.jugador.id != -1">{{planeta.jugador.nombre}}</div>
+		<div class="jugador" *ngIf="planeta.jugador != null && planeta.jugador.id != -1">
+			{{planeta.jugador.nombre}}
+			<span *ngIf="planeta.jugador.alianza!==null"> ({{planeta.jugador.alianza.nombre}})</span>
+		</div>
 		<img [src]="planeta.image">
-		{{planeta.nombre}}
+		{{planeta.nombreCompleto}}
 	</div>
 </div>
 

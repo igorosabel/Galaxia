@@ -26,6 +26,13 @@
 					<label for="protegido">Protegido</label>
 					<input type="checkbox" name="protegido" id="protegido" [checked]="planeta.protegido" (change)="planeta.protegido = !planeta.protegido">
 				</div>
+				<div>
+					<label for="especial">Especial</label>
+					<select name="especial" id="especial" [(ngModel)]="selectedEspecial">
+						<option [ngValue]="-1">Elige especial</option>
+						<option *ngFor="let especial of especiales" [ngValue]="especial.id">{{especial.nombre}}</option>
+					</select>
+				</div>
 			</div>
 		</div>
 		<div class="box-footer">

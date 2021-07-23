@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
 		}
 		this.as.getPlanetas(this.selected).subscribe(result => {
 			const planetList = this.cms.getPlanetas(result.list);
+			console.log(planetList);
 			this.planetas = [];
 
 			for (let i = 0; i < this.numPlanetas; i++) {
