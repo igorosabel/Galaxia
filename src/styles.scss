@@ -31,7 +31,12 @@ body {
 
 			img {
 				cursor: pointer;
+				width: 24px;
 			}
+		}
+
+		.table-thumbnail {
+			width: 84px;
 		}
 
 		.table-col-10 {
@@ -44,6 +49,10 @@ body {
 
 		.table-col-30 {
 			width: 30%;
+		}
+
+		.table-col-50 {
+			width: 50%;
 		}
 
 		.table-col-70 {
@@ -137,6 +146,17 @@ body {
 					&:focus {
 						border: 2px solid var(--modal-blue);
 					}
+				}
+
+				.modal-clickable {
+					cursor: pointer;
+					width: 84px;
+					display: block;
+					margin: 0 auto;
+				}
+
+				.modal-file {
+					display: none;
 				}
 			}
 		}

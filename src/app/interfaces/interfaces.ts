@@ -24,6 +24,7 @@ export interface JugadorInterface {
 export interface EspecialInterface {
 	id: number;
 	nombre: string;
+	img: string;
 }
 
 export interface GalaxiaInterface {

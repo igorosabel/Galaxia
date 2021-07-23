@@ -12,7 +12,8 @@ import {
 	JugadoresResult,
 	JugadorInterface,
 	PlanetaInterface,
-	EspecialesResult
+	EspecialesResult,
+	EspecialInterface
 } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
@@ -66,5 +67,13 @@ export class ApiService {
 
 	getEspeciales(): Observable<EspecialesResult> {
 		return this.http.post<EspecialesResult>(this.apiUrl + 'get-especiales', {});
+	}
+	
+	saveEspecial(especial: EspecialInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'save-especial', especial);
+	}
+
+	deleteEspecial(id: number): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'delete-especial', {id});
 	}
 }

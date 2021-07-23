@@ -87,7 +87,8 @@ export class ClassMapperService {
 	getEspecial(e: EspecialInterface): Especial {
 		return new Especial(
 			e.id,
-			Utils.urldecode(e.nombre)
+			Utils.urldecode(e.nombre),
+			e.img
 		);
 	}
 
