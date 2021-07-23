@@ -25,6 +25,7 @@
 		<div class="jugador" *ngIf="planeta.jugador != null && planeta.jugador.id != -1">
 			{{planeta.jugador.nombre}}
 			<span *ngIf="planeta.jugador.alianza!==null"> ({{planeta.jugador.alianza.nombre}})</span>
+			<img *ngIf="planeta.jugador.raza!==null" [src]="planeta.jugador.raza.logo">
 		</div>
 		<img [src]="planeta.image">
 		{{planeta.nombreCompleto}}

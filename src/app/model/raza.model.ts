@@ -6,6 +6,10 @@ export class Raza {
 		public nombre: string = ''
 	) {}
 	
+	get logo() {
+		return '/assets/raza/' + this.id + '.png';
+	}
+	
 	toInterface(): RazaInterface {
 		return {
 			id: this.id,
